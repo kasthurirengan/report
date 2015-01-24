@@ -1,0 +1,39 @@
+We use Kripke structure for modelling our system. Kripke structure is a tuple M = (S,R,I,AP,L).
+\begin{itemize}
+\item $S$ is set of states
+\item $R\subseteq S\times S$ is the transition relation
+\item $I\subseteq S$ is the set of possible initial states
+\item $AP$ is a set of atomic propositions
+\item $L:S\rightarrow 2^{AP}$ is a labeling function: each state is labeled with the\\ atomic propositions that are true in that state
+\end{itemize}
+S is also called as the state space of the system.
+\newline
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,
+  thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node] (1)  {S0};
+  \node[main node] (2) [right of=1] {S1};
+  \node[main node] (3) [below of=2] {S2};
+  \node[main node] (4) [below of=1] {S3};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (1) edge (2)
+        edge [bend left] (3)
+    (2) edge (3)
+    (3) edge (4)
+        edge [bend left] (1)
+    (4) edge (1)
+         edge[loop left] (4)
+         ;
+\end{tikzpicture}
+\caption{Kripke structure} \label{kripke structure}
+\end{figure}
+
+
+The Figure ~\ref{kripke structure} is a kripke structure. S0,S1,S2 and S3 are the states of the system. \{S0,S1\},\{S0,S2\},\{S3,S3\}.. are the transitions of the system.
+\newline
+
+Till early 1980's, transition relation of a system was represented using adjacency list\cite{Clarke 2008}.  Due to the increase in the number of states, state transition graph became too large to handle using adjacency list. \cite{McMillian 1993} suggested a novel approach to solve the state exploration problem by using a symbolic representation of the state transition graph. It was based on ROBDD. For a given order, ROBDD of a boolean expression is always canonical\cite{Bryant 1986}.

@@ -1,0 +1,81 @@
+Model checking is the process of verifying the given model with the given set of specifications. The process of model checking involves
+\begin{itemize}
+\item Modelling
+\item Specification
+\item Verification
+\end{itemize}
+
+\section{Model}
+The first step in model checking is to generate a model for the system. Model should capture all the properties of the system. The most important feature of a system is its state. State is the snapshot of the values of the variables of a system at a particular instant of time. State upon which an action is performed results in a new state. Pair of such states determines the transition of the system. To capture these behaviours of a system, we use kripke structure, a state transition graph.
+\subsection{Kripke Structure}
+\input{chapters/symbolic_model_checking/sections/model}
+\subsection{Binary Decision Diagram}
+\input{chapters/symbolic_model_checking/sections/bdd}
+
+
+\begin{algorithm}
+\begin{algorithmic}
+\caption{Symbolic computation of E U}
+\label{Symbolic computation of E U}
+\Procedure{symbolic computation of}{$ E(\phi 1\, U\, \phi 2)$}
+\State $f_0(V) = \chi_{\phi 2}(V)$
+\State $j = 0$
+\Repeat
+\State $f_{j+1}(V) = f_j(V) \lor (\chi_{\phi 1} \land \exists_{V'}[N(V,V')\land f_j(V')]);$
+\State j = j+1;
+\Until  $f_j(V) = f_{j-1}(V);$
+\State
+\Return $f_j(V)$
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\begin{algorithmic}[h]
+\caption{Symbolic computation of E G}
+\label{Symbolic computation of E G}
+\Procedure{symbolic computation of}{$ E G(\phi 1)$}
+\State $f_0(V) = \chi_{\phi 1}(V)$
+\State $j = 0$
+\Repeat
+\State $f_{j+1}(V) = f_j(V) \land (\chi_{\phi 1} \land \exists_{V'}[N(V,V')\land f_j(V')]);$
+\State j = j+1;
+\Until  $f_j(V) = f_{j-1}(V);$
+\State
+\Return $f_j(V)$
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\begin{algorithmic}
+\caption{Relational Product algorithm}
+\label{Relational Product algorithm}
+\Procedure{RelProd}{$f,$g:BDD,$E:set\_of\_variables$}$:BDD$
+\If{$f = false \lor g = false$}
+ \State $return$ $false$
+\ElsIf{$f = true \land g = true$}
+ \State $return$ $true$
+\ElsIf{$(f,g,E,h)$ $in$ $result$ $cache$}
+ \State $return$ $h$
+\Else
+ \State $let$ $x$ $be$ $the$ $top$ $variable$ $of$ f
+ \State $let$ $y$ $be$ $the$ $top$ $variable$ $of$ g
+ \State $let$ $z$ $be$ $the$ $topmost$  $of$ $f$ and g
+ \State {$h_0 = RelProd(f\mid_{z\to 0},g\mid_{z\to 0},E)$}
+ \State {$h_1 = RelProd(f\mid_{z\to 1},g\mid_{z\to 1},E)$}
+ \If{$z\in E$}
+  \State {$h = OR(h_0,h_1)$} //$BDD for h_0 \lor h_1$
+ \Else
+  \State {$h=IfThenElse(z,h_0,h_1)$}
+  \State $      /*BDD for (z\land h_1) \lor (\neg z\land h_0)*/$
+ \EndIf
+ \State {$insert(f,g,E,h)in$} result cache
+ \State return h
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}

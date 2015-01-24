@@ -1,0 +1,60 @@
+\documentclass[12pt]{report}
+\usepackage{scrpage2}
+\usepackage{graphicx}
+\usepackage{acronym}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath, amssymb, hyperref}
+\graphicspath{{images/}}
+
+\title{
+{Development of a Symbolic Model Checker}\\
+{\large Institute of Electronic Design and Automation}\\
+}
+\author{Kasthuri Rengan Narayanan}
+\date{Day Month Year}
+
+\begin{document}
+\input{titlepage}
+\tableofcontents
+\chapter*{Abstract}
+\input{abstract}
+Abstract goes here
+
+\chapter*{List of Acronyms}
+\begin{acronym}
+\acro{BDD}{Binary Decision Diagram}
+\acro{ROBDD}{Reduced Ordered Binary Decision Diagram}
+\acro{SAT}{Satisfiability}
+\acro{CNF}{Conjunctive Normal Form}
+\acro{DNF}{Disjunctive Normal Form}
+\acro{POS}{Product of Sums}
+\acro{SOP}{Sum Of Products}
+\end{acronym}
+\listofalgorithms
+\listoffigures
+\chapter{Introduction}
+\input{chapters/introduction/introduction}
+
+\chapter{Model Checking}
+\input{chapters/symbolic_model_checking/symbolic_model_checking}
+
+\chapter{Partitioned Transition Relation}
+\input{chapters/partitioned_transition_relation}
+
+\chapter{Cone Of Influence Reduction}
+\input{chapters/cone_of_influence_reduction}
+
+\chapter{SAT Solver}
+\input{chapters/SAT_solver}
+\end{document}
+
+\begin{thebibliography}{20}
+\bibitem{Alok,2010} Sanghavi, Alok \emph{What is formal verification?} 21 May 2010: EE Times_Asia.
+\bibitem{Clarke,2008} Clarke, Edmund M \emph{The Birth of Model checking} 25 years of model checking,2008.
+\bibitem{McMillan 1993} McMillan, Kenneth L \emph{Symbolic Model Checking: An approach to the State Explosion Problem} kluwer Academic Publishers,1993.
+\bibitem{Bryant 1986} Bryanth, randal E \emph{Graph-Based Algorithms for Boolean Function Manipulation} IEEE Transactions on Computers C-35-8:677-691, August 1986
+\bibitem{Lee 1959} C.Y.Lee \emph{Binary decision programs} Bell System Technical Journal.38(4):985-999, July 1959.
+\end{thebibliography}
