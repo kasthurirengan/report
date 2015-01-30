@@ -1,0 +1,98 @@
+In section ~\ref{sec:model_bdd} we have discussed how ROBDD is used to represent the model of the system. To verify the model using the specification we need algorithms that operates on ROBDD. In this section we will be seeing few basic CTL model checking algorithms which are used to verify the ROBDD model with the CTL specification. As mentioned in section ~\ref{sec:specification}, we will be looking into algorithms of 3 basic CTL operators used in our tool E X, E G, E U.
+
+\subsection*{Symbolic computation of E X}
+Equation ~\ref{eqn:exists_next} is the symbolic computation algorithm for E X $\Phi$. It is a straightforward procedure where E X $\Phi$ is true in a state, if in the successor state $\Phi$ is true.
+
+\begin{equation}
+\label{eqn:exists_next}
+EX(\Phi)\,=\,[EX(\Phi)](V)\,=\,\exists_{V'} [N(V,V')\wedge \Phi(V')]
+\end{equation}
+
+$N(V,V')$ is the ROBDD representation of transition relation of the system. $\Phi(V')$ is the ROBDD representation of the given CTL expression. Once we have both the ROBDD's we can find E X using the equation ~\ref{eqn:EQ}.
+
+\subsection*{Relational Product Computation}
+
+From equation ~\ref{eqn:exists_next} one can easily compute E X by using an BDD AND operation on ROBDD's $\Phi(V')$ and $N(V,V')$ and then applying existential quantification using equation ~\ref{eqn:EQ}. As seen in figure ~\ref{fig:ROBDD_counter}, ROBDD representation of a transition relation contains both present state and next state variables. We use existential quantification to quantify out next state variables. The ROBDD of $N(V,V') \land \Phi(V')$ will always be much larger than the final result. A new algorithm was proposed to compute the resultant ROBDD by performing AND operation and existential quantification in a single step \cite{Clarke 1999}. Figure ~\ref{Relational Product algorithm} shows the algorithm for computing relational product.
+
+f and g are the 2 ROBDD's representing transition relation and CTL expression. E contains the set of variables which are to be existentially quantified out. In figure ~\ref{Relational Product algorithm} line 2-5 corresponds to basic AND operation while line 15 corresponds to existential quantification. 
+
+\begin{figure}[H]
+\begin{framed}
+\begin{algorithmic}[1]
+\Procedure{RelProd}{$f,$g:BDD,$E:set\_of\_variables$}$:BDD$
+\If{$f = false \lor g = false$}
+ \State $return$ $false$
+\ElsIf{$f = true \land g = true$}
+ \State $return$ $true$
+\ElsIf{$(f,g,E,h)$ $in$ $result$ $cache$}
+ \State $return$ $h$
+\Else
+ \State $let$ $x$ $be$ $the$ $top$ $variable$ $of$ f
+ \State $let$ $y$ $be$ $the$ $top$ $variable$ $of$ g
+ \State $let$ $z$ $be$ $the$ $topmost$  $of$ $f$ and g
+ \State {$h_0 = RelProd(f\mid_{z\to 0},g\mid_{z\to 0},E)$}
+ \State {$h_1 = RelProd(f\mid_{z\to 1},g\mid_{z\to 1},E)$}
+ \If{$z\in E$}
+  \State {$h = OR(h_0,h_1)$} //$BDD for h_0 \lor h_1$
+ \Else
+  \State {$h=IfThenElse(z,h_0,h_1)$}
+  \State $      /*BDD for (z\land h_1) \lor (\neg z\land h_0)*/$
+ \EndIf
+ \State {$insert(f,g,E,h)in$} result cache
+ \State return h
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{framed}
+\caption{Relational Product algorithm}
+\label{Relational Product algorithm}
+\end{figure}
+
+\subsection*{Symbolic computation of E U}
+
+Figure ~\ref{Symbolic computation of E U} shows the algorithm for symbolic computation of $E (\Phi 1 U \Phi 2)$ CTL operator \cite{Baier 2008}.   
+
+\begin{figure}[H]
+\begin{framed}
+\begin{algorithmic}[1]
+\Procedure{symbolic computation of}{$ E(\phi 1\, U\, \phi 2)$}
+\State $f_0(V) = \chi_{\phi 2}(V)$
+\State $j = 0$
+\Repeat
+\State $f_{j+1}(V) = f_j(V) \lor (\chi_{\phi 1} \land \exists_{V'}[N(V,V')\land f_j(V')]);$
+\State j = j+1;
+\Until  $f_j(V) = f_{j-1}(V);$
+\State
+\Return $f_j(V)$
+
+\EndProcedure
+\end{algorithmic}
+\end{framed}
+\caption{Symbolic computation of E U}
+\label{Symbolic computation of E U}
+\end{figure}
+
+
+\subsection*{Symbolic computation of E G}
+
+Figure ~\ref{Symbolic computation of E G} shows the algorithm for symbolic computation of $E G(\Phi 1)$ CTL operator \cite{Baier 2008}. 
+
+\begin{figure}[H]
+\begin{framed}
+\begin{algorithmic}[1]
+\Procedure{symbolic computation of}{$ E G(\phi 1)$}
+\State $f_0(V) = \chi_{\phi 1}(V)$
+\State $j = 0$
+\Repeat
+\State $f_{j+1}(V) = f_j(V) \land (\chi_{\phi 1} \land \exists_{V'}[N(V,V')\land f_j(V')]);$
+\State j = j+1;
+\Until  $f_j(V) = f_{j-1}(V);$
+\State
+\Return $f_j(V)$
+
+\EndProcedure
+\end{algorithmic}
+\end{framed}
+\caption{Symbolic computation of E G}
+\label{Symbolic computation of E G}
+\end{figure}

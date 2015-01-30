@@ -1,0 +1,98 @@
+We have already seen how ROBDD is useful in compact representation of a boolean expression. McMillan suggested a novel approach in the field of model checking by using ROBDD's for the symbolic representation of state transition graphs \cite{Burch 1990}\cite{McMillan 1993}.
+
+Lets now look with an example how kripke structure can be represented using ROBDD. Consider the kripke structure in the figure \ref{fig:kripke structure 2-bit counter}. There are 3 state variables v1,v0 and rst. 3 additional state variables v1',v0' and rst' are introduced to encode the successor states. v1,v0 and rst are the present state variables while v1',v0' and rst' are the next state variables.
+
+Table \ref{table:state_encoding} shows the state encoding table of the figure \ref{fig:kripke structure 2-bit counter}. Only the transition relations present in figure \ref{fig:kripke structure 2-bit counter} are considered in the table \ref{table:state_encoding}. Thus the transition from state 000 to state 010 in figure \ref{fig:kripke structure 2-bit counter} is represented in first row in table \ref{table:state_encoding} which can be written as $\neg v1 \land \neg v0 \land \neg rst \land \neg v1' \land v0' \land \neg rst'$. In the same way second transition in table \ref{table:state_encoding} can be written as $\neg v1 \land \neg v0 \land \neg rst \land \neg v1' \land v0' \land rst'$. Similarly all the transitions in state transition graph can be encoded. The transition relation of the system can be obtained by the disjunction of all the rows in state encoding table \ref{table:state_encoding}.
+
+$(\neg v1 \land \neg v0 \land \neg rst \land \neg v1' \land v0' \land \neg rst') \lor (\neg v1 \land \neg v0 \land \neg rst \land \neg v1' \land v0' \land rst') \lor ...$
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ |c|c|c|c|c|c| }
+\hline
+\multicolumn{3}{|c|}{Present state} & \multicolumn{3}{|c|}{Next state}\\
+\hline
+v1 & v0 & rst & v0' & v1' & rst'\\
+\hline
+& & & 0 & 1 & 0 \\[-1ex]
+\raisebox{1.5ex}{0} & \raisebox{1.5ex}{0} & \raisebox{1.5ex}{0} & 0 & 1 & 1\\
+\hline
+& & & 0 & 0 & 0\\[-1ex]
+\raisebox{1.5ex}{0} & \raisebox{1.5ex}{0} & \raisebox{1.5ex}{1} & 0 & 0 & 1\\
+\hline
+& & & 1 & 0 & 0\\[-1ex]
+\raisebox{1.5ex}{0} & \raisebox{1.5ex}{1} & \raisebox{1.5ex}{0} & 1 & 0 & 1\\
+\hline
+& & & 0 & 0 & 0\\[-1ex]
+\raisebox{1.5ex}{0} & \raisebox{1.5ex}{1} & \raisebox{1.5ex}{1} & 0 & 0 & 1\\
+\hline
+& & & 1 & 1 & 1\\[-1ex]
+\raisebox{1.5ex}{1} & \raisebox{1.5ex}{0} & \raisebox{1.5ex}{0} & 1 & 1 & 0\\
+\hline
+& & & 0 & 0 & 0\\[-1ex]
+\raisebox{1.5ex}{1} & \raisebox{1.5ex}{0} & \raisebox{1.5ex}{1} & 0 & 0 & 1\\
+\hline
+& & & 0 & 0 & 0\\[-1ex]
+\raisebox{1.5ex}{1} & \raisebox{1.5ex}{1} & \raisebox{1.5ex}{0} & 0 & 0 & 1\\
+\hline
+& & & 0 & 0 & 0\\[-1ex]
+\raisebox{1.5ex}{1} & \raisebox{1.5ex}{1} & \raisebox{1.5ex}{1} & 0 & 0 & 1\\
+\hline
+\end{tabular} 
+\caption{State Encoding for 2-bit Counter}
+\label{table:state_encoding}
+\end{table}
+
+The transition relation is then converted to an ROBDD for a compact representation. Figure \ref{fig:ROBDD_counter} shows the ROBDD representation of the transition relation of 2-bit counter. In most of the cases encoding the transition relation as mentioned above from the kripke structure is not feasible as the state transition graph is too large. So, ROBDD is generated from the high-level description of the system. From the equation \label{eqn:v0_0} and \label{eqn:v0_1} transition relation of the whole system can be built. The transition relation of a system is the conjunction of the transition relation of individual variables.
+\begin{equation}
+(v0'\leftrightarrow\,\neg (rst\lor v0)) \land (v1'\leftrightarrow \neg (rst\lor ((\neg v0 \lor v1)\land(v0 \lor \neg v1)))
+\label{eqn:TR}
+\end{equation}
+Equation \ref{eqn:TR} is the transition relation of the system.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=3.5cm,
+  thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries,minimum size=1.5cm}]
+
+  \node[main node] (2) {rst};
+  \node[main node] (4) [below of=2] {v0};
+  \node[main node] (6) [below left of=4] {v0'};
+  \node[main node] (7) [right of=6] {v0'};
+  \node[main node] (8) [right of=7] {v0'};
+  \node[main node] (10) [below of=7] {v1};
+  \node[main node] (11) [right of=10] {v1};
+
+  \node[main node] (12) [below left of=10] {v1'};
+  \node[main node] (13) [below right of=10] {v1'};
+  \node[rectangle,main node] (14) [below of=12] {True};
+\node[rectangle,main node] (15) [right of=14] {False};
+
+
+  \path[every node/.style={font=\sffamily\small}]
+     (2) edge (6)
+          edge[dashed](4)
+     (4)edge(7)
+          edge[dashed](8)
+    (6)edge(15)   
+         edge[dashed](12)
+   (7)edge[bend right](15)
+       edge[dashed](10)
+    (8)edge(11)
+        edge[bend right,dashed](15)
+   (10)edge(12)
+         edge[dashed](13)
+   (11)edge(13)
+         edge[dashed](12)
+   (12)edge(15)
+         edge[dashed](14)
+   (13)edge(14)
+          edge[dashed](15)
+     
+
+;
+\end{tikzpicture}
+\caption{ROBDD representation of transition relation of 2-bit counter}
+\label{fig:ROBDD_counter}
+\end{figure}

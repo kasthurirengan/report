@@ -1,0 +1,190 @@
+\begin{itemize}
+\item Does a program reach a state in future?
+\item Will the program eventually terminate?
+\item Does the program always behave correctly?
+\end{itemize}
+
+For specifying such properties we need "Temporal Logic". 
+
+\subsection{Temporal Logic}
+It expresses the ordering of events in time. It is the formalism for describing transitions in a reactive system. In temporal logic, time is not explicitly mentioned rather mentioned like eventually a state will be reached or never error state is reached. Temporal logic basically has 2 kinds of operators. They are logical operators like AND,OR,NOT, IMPLICATION etc.. and modal operators like X, F, G etc... Temporal logic can be differentiated into 2 kinds namely linear and branching time logic. In linear time logic, events along a single computational path are described. In branching time logic, events along the paths from a state are described.
+
+Liner temporal logic(LTL) is a linear time logic and Computational Tree Logic (CTL) is a branching time logic. Combination of both LTL and CTL is CTL*, which is the most powerful temporal logic.In our tool we have used only CTL. In this report, only CTL will be discussed. CTL formulas are composed of path quantifiers and temporal operators. 
+
+\subsubsection*{Path quantifiers:}
+Branching structure in a computation tree is described using path quantifier. There are 2 path quantifiers\cite{Clarke 1999}
+\begin{itemize}
+\item A : For ALL computation paths
+\item E : For some computation path
+\end{itemize}
+In a state, these quantifiers are used by specifying all the paths or along some paths some property holds from that state.
+
+\subsubsection*{Temporal Operators:}
+Properties of a path in a computation tree is described by temporal operators. There are basically 4 temporal operators
+\begin{itemize}
+\item X "Next" - Property holds in the second state of the path.
+\item F "Future" - Property will hold at some state along the path.
+\item G "Global" - Property holds at every state along the path.
+\item U "Until" (f U g) - Property g holds in some states until then property f holds along the path.
+\end{itemize}
+
+There are 2 types of formulas in Temporal Logic.
+
+\subsubsection*{State Formula:}
+\begin{itemize}
+\item It is defined as the formula which holds true in a specific state.
+\item If $p\in AP$, then p is a state formula.
+\item If f and g are state formulas, then $\neg f, f\lor g,f\land g$ are also state formulas.
+\item If f is a path formula, then E f and A f are state formulas.
+\end{itemize}
+
+\subsubsection*{Path Formula:}
+\begin{itemize}
+\item It is defined as the formula which holds true along a specific path.
+\item if f and g are path formulas, then $\neg f, f\lor g,f\land g, X f,F f,G f,f U g$ are also path formulas.
+\end{itemize}
+
+CTL uses only state formulas. In CTL, temporal operators should always be preceded by a path quantifier.
+
+\subsubsection*{Syntax of CTL:}
+CTL formula are always formed according to the following grammar.
+
+\begin{center}
+$\phi::=true\mid a\mid \phi_1\wedge\phi_2\mid\neg\phi\mid E \psi\mid\forall\psi$
+\end{center}
+
+where $a\in AP$ and $\psi$ is a path formula and also a temporal operator. CTL  path formula are formed according to following grammar.
+
+\begin{center}
+$\psi::=X\phi\mid\phi_1\cup\phi_2$
+\end{center}
+
+where $\phi_1$ and $\phi_2$ are state formula.
+
+\subsubsection*{CTL operators:}
+There are 8 basic CTL operators. 
+\begin{itemize}
+\item AX and EX
+\item AF and EF
+\item AG and EG
+\item AU and EU
+\end{itemize}
+
+3 main operators used in our tool are EX, EG and EU. All the remaining operators can be expressed using the above mentioned 3 operators.
+
+\begin{itemize}
+\item AX f = $\neg E X(\neg f)$
+\item EF f = $E (True U f)$
+\item AF f = $\neg E G(\neg f)$
+\item AG f = $\neg E F(\neg f)$
+\item A(f U g) = $\neg E(\neg g U (\neg f \land \neg g)) \land \neg E G\neg g$
+\end{itemize}
+
+\begin{figure}[H]
+\begin{tabular}{c  c}
+\begin{subfigure}{.5\textwidth}
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=2cm,
+  thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries,minimum size=1cm}]
+
+  \node[main node,fill = green] (0) {f};
+  \node[main node,fill = green] (1) [below left of=0] {f};
+  \node[main node] (2) [below right of=0] {g};
+  \node[main node,fill = green] (3) [below left of=1] {f};
+  \node[main node] (4) [below right of=2] {h};
+  \node[main node] (5) [below left of=2] {g};
+  
+    \path[every node/.style={font=\sffamily\small}]
+     (0) edge (1)
+          edge (2)
+     (1)edge (3)
+    (2)edge(4)   
+         edge(5)
+;
+\end{tikzpicture}
+\caption{E G f}
+\label{E G f}
+\end{subfigure}
+\hfill\hfill\hfill
+&
+\begin{subfigure}{.5\textwidth}
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=2cm,
+  thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries,minimum size=1cm}]
+
+  \node[main node,fill = green] (0) {f};
+  \node[main node] (1) [below left of=0] {f};
+  \node[main node,fill = green] (2) [below right of=0] {g};
+  \node[main node] (3) [below left of=1] {f};
+  \node[main node,fill = green] (4) [below right of=2] {h};
+  \node[main node] (5) [below left of=2] {g};
+  
+    \path[every node/.style={font=\sffamily\small}]
+     (0) edge (1)
+          edge (2)
+     (1)edge (3)
+    (2)edge(4)   
+         edge(5)
+;
+\end{tikzpicture}
+\caption{E F h}
+\label{E F h}
+\end{subfigure}
+
+\\
+\\
+\begin{subfigure}{.5\textwidth}
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=2cm,
+  thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries,minimum size=1cm}]
+
+  \node[main node] (0) {f};
+  \node[main node] (1) [below left of=0] {f};
+  \node[main node,fill = green] (2) [below right of=0] {g};
+  \node[main node] (3) [below left of=1] {f};
+  \node[main node,fill = green] (4) [below right of=2] {h};
+  \node[main node] (5) [below left of=2] {g};
+  
+    \path[every node/.style={font=\sffamily\small}]
+     (0) edge (1)
+          edge (2)
+     (1)edge (3)
+    (2)edge(4)   
+         edge(5)
+;
+\end{tikzpicture}
+\caption{E (g U h)}
+\label{E (g U h)}
+\end{subfigure}
+\hfill\hfill\hfill
+&
+\begin{subfigure}{.5\textwidth}
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,node distance=2cm,
+  thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries,minimum size=1cm}]
+
+  \node[main node] (0) {f};
+  \node[main node] (1) [below left of=0] {f};
+  \node[main node,fill = green] (2) [below right of=0] {g};
+  \node[main node] (3) [below left of=1] {f};
+  \node[main node] (4) [below right of=2] {h};
+  \node[main node] (5) [below left of=2] {g};
+  
+    \path[every node/.style={font=\sffamily\small}]
+     (0) edge (1)
+          edge (2)
+     (1)edge (3)
+    (2)edge(4)   
+         edge(5)
+;
+\end{tikzpicture}
+\caption{E X h}
+\label{E X h)}
+\end{subfigure}
+\\
+\end{tabular}
+\caption{Basic CTL operators}
+\label{fig:basic ctl operators}
+\end{figure}
+
+Figure ~\ref{fig:basic ctl operators} shows the pictorial representation of few basic CTL operators.
