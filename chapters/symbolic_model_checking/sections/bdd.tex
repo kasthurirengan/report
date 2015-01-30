@@ -1,1 +1,41 @@
 Boolean expressions can be represented using a rooted, direct, acyclic graph called the BDD. BDD was first introduced by Lee\cite{Lee,1959}. An efficient data structure for representing the BDD and efficient algorithms for manipulating BDD's were later developed by \cite{Bryant 1986}. He also introduced the concept of ordering of variables in a BDD, which would affect the size significantly. 
+
+Let's see few important expressions for BDD manipulations.
+
+\subsubsection*{Shannon Expansion}
+It is defined as the expansion of a boolean formula with respect to a boolean variable. $f|_{x\leftarrow 0}$ and $f|_{x_\leftarrow 1}$ are called the positive and negative Shannon co-factors of  boolean formula f with respect to boolean variable x.
+\begin{equation}
+\label{shannon}
+f=(\neg x\land f|_{x\leftarrow 0}) \lor (x\land f|_{x\leftarrow 1})
+\end{equation}
+
+\subsubsection*{Existential quantification}
+If either the positive co-factor or the negative co-factor of a boolean expression with respect to a boolean variable x is true, then the boolean variable x can be existentially quantified out.
+\begin{equation}
+\label{eqn:EQ}
+\exists_xf=f|_{x\leftarrow 0} \lor f|_{x\leftarrow 1}
+\end{equation}
+
+
+\subsubsection*{Universal quantification}
+Only if both the positive and negative co-factor of a boolean expression with respect to a boolean variable x is true, then the boolean variable x can be universally quantified out. 
+\begin{equation}
+\label{UQ}
+\forall_xf=f|_{x\leftarrow 0} \land f|_{x\leftarrow 1}
+\end{equation}
+
+\subsubsection*{BDD Operations}
+Boolean operations like AND, OR, NOT etc.. can be implemented as algorithms on OBDD's. The algorithm takes OBDD's as input and produce a reduced form of OBDD's\cite{Bryant 1986}. The variable ordering of the original OBDD's are preserved. The reduction of OBDD is based on the following reduction rules.
+
+\begin{itemize}
+\item Any node having identical child nodes are removed.
+\item 2 Nodes with isomorphic BDD's are removed.
+\end{itemize}
+
+ROBDD is the most compact representation of BDD by using the above mentioned reduction rule which results in eliminating nodes which in turn reduces the memory used to construct ROBDD. 
+\begin{equation}
+f<op>g = (\neg x \land (f|_{x\leftarrow 0} <op> g|_{x\leftarrow 0})) \lor (x \land (f|_{x\leftarrow 1} <op> g|_{x\leftarrow 1}))
+\label{eqn:op}
+\end{equation}
+
+Equation ~\ref{eqn:op} can be recursively called for computing the OBDD representation of $f<op>g$. Reduction rules can be applied alongside the operation thereby generating a ROBDD.

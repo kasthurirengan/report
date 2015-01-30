@@ -1,6 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Kripke structure}}{8}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Formal Verification using Model Checking\relax }}{8}{figure.caption.7}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Circuit of a 2-bit Counter\relax }}{9}{figure.caption.8}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Kripke structure of a 2-bit Counter\relax }}{11}{figure.caption.9}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces ROBDD representation of transition relation of 2-bit counter\relax }}{15}{figure.caption.15}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Basic CTL operators\relax }}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Relational Product algorithm\relax }}{21}{figure.caption.25}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Symbolic computation of E U\relax }}{22}{figure.caption.27}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Symbolic computation of E G\relax }}{22}{figure.caption.29}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

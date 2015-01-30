@@ -7,33 +7,45 @@ We use Kripke structure for modelling our system. Kripke structure is a tuple M 
 \item $L:S\rightarrow 2^{AP}$ is a labeling function: each state is labeled with the\\ atomic propositions that are true in that state
 \end{itemize}
 S is also called as the state space of the system.
-\newline
 
 \begin{figure}
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,
   thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
 
-  \node[main node] (1)  {S0};
-  \node[main node] (2) [right of=1] {S1};
-  \node[main node] (3) [below of=2] {S2};
-  \node[main node] (4) [below of=1] {S3};
+   \node[main node] (2)  {000};
+  \node[main node] (3) [above of=2] {001};
+  \node[main node] (5) [above of=3] {011};
+  \node[main node] (4) [above of=5] {010};
+  \node[main node] (6) [right of=4] {100};
+  \node[main node] (7) [right of=5] {101};
+  \node[main node] (8) [right of=2] {110};
+  \node[main node] (9) [right of=3] {111};
+
 
   \path[every node/.style={font=\sffamily\small}]
-    (1) edge (2)
-        edge [bend left] (3)
-    (2) edge (3)
-    (3) edge (4)
-        edge [bend left] (1)
-    (4) edge (1)
-         edge[loop left] (4)
+    (2) edge [bend left]  (4)
+        edge [bend left]  (5)
+    (3) edge[loop left] (3)
+        edge   (2)
+    (4) edge (6)
+          edge (7)
+    (5)edge (3)
+         edge[bend left] (2)
+    (6)edge [bend left] (8)
+         edge[bend left] (9)
+    (7)edge (2)
+         edge (3)
+    (8) edge (2)
+         edge(3)
+    (9) edge (2)
+          edge(3)
          ;
 \end{tikzpicture}
-\caption{Kripke structure} \label{kripke structure}
+\caption{Kripke structure of a 2-bit Counter} 
+\label{fig:kripke structure 2-bit counter}
 \end{figure}
 
-
-The Figure ~\ref{kripke structure} is a kripke structure. S0,S1,S2 and S3 are the states of the system. \{S0,S1\},\{S0,S2\},\{S3,S3\}.. are the transitions of the system.
-\newline
+Figure \ref{fig:kripke structure 2-bit counter} is a kripke structure of the figure \ref{fig:2-bit Counter}. Here state 000 corresponds to $\neg v1 \neg v0 \neg rst$.
 
 Till early 1980's, transition relation of a system was represented using adjacency list\cite{Clarke 2008}.  Due to the increase in the number of states, state transition graph became too large to handle using adjacency list. \cite{McMillian 1993} suggested a novel approach to solve the state exploration problem by using a symbolic representation of the state transition graph. It was based on ROBDD. For a given order, ROBDD of a boolean expression is always canonical\cite{Bryant 1986}.

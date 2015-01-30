@@ -1,4 +1,5 @@
 \relax 
+\providecommand\zref@newlabel[2]{}
 \providecommand\hyper@newdestlabel[2]{}
 \reset@newl@bel
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
@@ -18,42 +19,89 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \newacro{BDD}[\AC@hyperlink{BDD}{BDD}]{Binary Decision Diagram}
+\newacro{OBDD}[\AC@hyperlink{OBDD}{OBDD}]{Ordered Binary Decision Diagram}
 \newacro{ROBDD}[\AC@hyperlink{ROBDD}{ROBDD}]{Reduced Ordered Binary Decision Diagram}
+\newacro{LTL}[\AC@hyperlink{LTL}{LTL}]{Linear Temporal Logic}
+\newacro{CTL}[\AC@hyperlink{CTL}{CTL}]{Computational Tree Logic}
 \newacro{SAT}[\AC@hyperlink{SAT}{SAT}]{Satisfiability}
 \newacro{CNF}[\AC@hyperlink{CNF}{CNF}]{Conjunctive Normal Form}
 \newacro{DNF}[\AC@hyperlink{DNF}{DNF}]{Disjunctive Normal Form}
 \newacro{POS}[\AC@hyperlink{POS}{POS}]{Product of Sums}
 \newacro{SOP}[\AC@hyperlink{SOP}{SOP}]{Sum Of Products}
 \citation{Alok 2010}
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Model Checking}{7}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Model Checking}{8}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Model}{7}{section.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Kripke Structure}{7}{subsection.2.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Formal Verification using Model Checking\relax }}{8}{figure.caption.7}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:sample_model_checking}{{2.1}{8}{Formal Verification using Model Checking\relax }{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Circuit of a 2-bit Counter\relax }}{9}{figure.caption.8}}
+\newlabel{fig:2-bit Counter}{{2.2}{9}{Circuit of a 2-bit Counter\relax }{figure.caption.8}{}}
+\newlabel{eqn:v0}{{2.1}{9}{Model Checking}{equation.2.0.1}{}}
+\newlabel{eqn:v1}{{2.2}{9}{Model Checking}{equation.2.0.2}{}}
 \citation{Clarke 2008}
 \citation{McMillian 1993}
 \citation{Bryant 1986}
+\newlabel{eqn:v0_1}{{2.3}{10}{Model Checking}{equation.2.0.3}{}}
+\newlabel{eqn:v1_1}{{2.4}{10}{Model Checking}{equation.2.0.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Model}{10}{section.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Kripke Structure}{10}{subsection.2.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Kripke structure of a 2-bit Counter\relax }}{11}{figure.caption.9}}
+\newlabel{fig:kripke structure 2-bit counter}{{2.3}{11}{Kripke structure of a 2-bit Counter\relax }{figure.caption.9}{}}
 \citation{Lee}
 \citation{1959}
 \citation{Bryant 1986}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Kripke structure}}{8}{figure.2.1}}
-\newlabel{kripke structure}{{2.1}{8}{Kripke structure}{figure.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Binary Decision Diagram}{8}{subsection.2.1.2}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Symbolic computation of E U}}{9}{algorithm.1}}
-\newlabel{Symbolic computation of E U}{{1}{9}{Binary Decision Diagram}{algorithm.1}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Symbolic computation of E G}}{9}{algorithm.2}}
-\newlabel{Symbolic computation of E G}{{2}{9}{Binary Decision Diagram}{algorithm.2}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Relational Product algorithm}}{10}{algorithm.3}}
-\newlabel{Relational Product algorithm}{{3}{10}{Binary Decision Diagram}{algorithm.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Partitioned Transition Relation}{11}{chapter.3}}
+\citation{Bryant 1986}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Binary Decision Diagram}{12}{subsection.2.1.2}}
+\newlabel{shannon}{{2.5}{12}{Shannon Expansion}{equation.2.1.5}{}}
+\newlabel{eqn:EQ}{{2.6}{12}{Existential quantification}{equation.2.1.6}{}}
+\newlabel{UQ}{{2.7}{12}{Universal quantification}{equation.2.1.7}{}}
+\citation{Burch 1990}
+\citation{McMillan 1993}
+\newlabel{eqn:op}{{2.8}{13}{BDD Operations}{equation.2.1.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Representing Kripke structure using BDD}{13}{subsection.2.1.3}}
+\newlabel{sec:model_bdd}{{2.1.3}{13}{Representing Kripke structure using BDD}{subsection.2.1.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces State Encoding for 2-bit Counter\relax }}{14}{table.caption.14}}
+\newlabel{table:state_encoding}{{2.1}{14}{State Encoding for 2-bit Counter\relax }{table.caption.14}{}}
+\newlabel{eqn:v0_0}{{2.1.3}{14}{Representing Kripke structure using BDD}{table.caption.14}{}}
+\newlabel{eqn:v0_1}{{2.1.3}{14}{Representing Kripke structure using BDD}{table.caption.14}{}}
+\newlabel{eqn:TR}{{2.9}{14}{Representing Kripke structure using BDD}{equation.2.1.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces ROBDD representation of transition relation of 2-bit counter\relax }}{15}{figure.caption.15}}
+\newlabel{fig:ROBDD_counter}{{2.4}{15}{ROBDD representation of transition relation of 2-bit counter\relax }{figure.caption.15}{}}
+\citation{Clarke 1999}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Specification}{16}{section.2.2}}
+\newlabel{sec:specification}{{2.2}{16}{Specification}{section.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Temporal Logic}{16}{subsection.2.2.1}}
+\newlabel{E G f}{{2.5a}{19}{E G f\relax }{figure.caption.22}{}}
+\newlabel{sub@E G f}{{a}{19}{E G f\relax }{figure.caption.22}{}}
+\newlabel{E F h}{{2.5b}{19}{E F h\relax }{figure.caption.22}{}}
+\newlabel{sub@E F h}{{b}{19}{E F h\relax }{figure.caption.22}{}}
+\newlabel{E (g U h)}{{2.5c}{19}{E (g U h)\relax }{figure.caption.22}{}}
+\newlabel{sub@E (g U h)}{{c}{19}{E (g U h)\relax }{figure.caption.22}{}}
+\newlabel{E X h)}{{2.5d}{19}{E X h\relax }{figure.caption.22}{}}
+\newlabel{sub@E X h)}{{d}{19}{E X h\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Basic CTL operators\relax }}{19}{figure.caption.22}}
+\newlabel{fig:basic ctl operators}{{2.5}{19}{Basic CTL operators\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Verification}{19}{section.2.3}}
+\citation{Clarke 1999}
+\newlabel{eqn:exists_next}{{2.10}{20}{Symbolic computation of E X}{equation.2.3.10}{}}
+\citation{Baier 2008}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Relational Product algorithm\relax }}{21}{figure.caption.25}}
+\newlabel{Relational Product algorithm}{{2.6}{21}{Relational Product algorithm\relax }{figure.caption.25}{}}
+\citation{Baier 2008}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Symbolic computation of E U\relax }}{22}{figure.caption.27}}
+\newlabel{Symbolic computation of E U}{{2.7}{22}{Symbolic computation of E U\relax }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Symbolic computation of E G\relax }}{22}{figure.caption.29}}
+\newlabel{Symbolic computation of E G}{{2.8}{22}{Symbolic computation of E G\relax }{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Partitioned Transition Relation}{23}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Cone Of Influence Reduction}{12}{chapter.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Cone Of Influence Reduction}{24}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}SAT Solver}{13}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}SAT Solver}{25}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
