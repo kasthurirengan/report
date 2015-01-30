@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  29 JAN 2015 16:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.13)  30 JAN 2015 13:46
 entering extended mode
 **preamble.tex
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\preamble.tex"
@@ -988,20 +988,15 @@ l.30 \chapter
 ]
 [3
 
-] ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\preamble.loa")
-\tf@loa=\write7
+] ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\preamble.lof")
+\tf@lof=\write7
 
 [4
 
-] ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\preamble.lof")
-\tf@lof=\write8
+] ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\preamble.lot")
+\tf@lot=\write8
 
 [5
-
-] ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\preamble.lot")
-\tf@lot=\write9
-
-[6
 
 ]
 Chapter 1.
@@ -1009,7 +1004,7 @@ Chapter 1.
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/introduction/in
 troduction.tex"
 
-LaTeX Warning: Citation `Alok 2010' on page 7 undefined on input line 1.
+LaTeX Warning: Citation `Alok 2010' on page 6 undefined on input line 1.
 
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 3.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
@@ -1017,20 +1012,20 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
-) [7
+) [6
 
 ]
 Chapter 2.
 
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/symbolic_model_
 checking/symbolic_model_checking.tex"
-<images/model_checking.jpg, id=137, 417.81094pt x 239.39438pt>
+<images/model_checking.jpg, id=132, 417.81094pt x 239.39438pt>
 File: images/model_checking.jpg Graphic file (type jpg)
 
 <use images/model_checking.jpg>
 Package pdftex.def Info: images/model_checking.jpg used on input line 9.
 (pdftex.def)             Requested size: 334.2492pt x 191.51575pt.
- [8
+ [7
 
  <C:/Users/Kasthuri Rengan/Desktop/Thesis/Final report/images/model_checking.jp
 g>]
@@ -1038,7 +1033,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
-<images/counter_2.png, id=143, 436.63126pt x 275.52937pt>
+<images/counter_2.png, id=138, 436.63126pt x 275.52937pt>
 File: images/counter_2.png Graphic file (type png)
 
 <use images/counter_2.png>
@@ -1049,92 +1044,60 @@ Overfull \hbox (2.9645pt too wide) in paragraph at lines 19--20
 [][] 
  []
 
-[9 <C:/Users/Kasthuri Rengan/Desktop/Thesis/Final report/images/counter_2.png>]
+[8 <C:/Users/Kasthuri Rengan/Desktop/Thesis/Final report/images/counter_2.png>]
 
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/symbolic_model_
 checking/sections/model.tex"
 
-LaTeX Warning: Citation `Clarke 2008' on page 10 undefined on input line 51.
+LaTeX Warning: Citation `Clarke 2008' on page 9 undefined on input line 51.
 
 
-LaTeX Warning: Citation `McMillian 1993' on page 10 undefined on input line 51.
+LaTeX Warning: Citation `McMillian 1993' on page 9 undefined on input line 51.
 
-
-
-LaTeX Warning: Citation `Bryant 1986' on page 10 undefined on input line 51.
-
-) [10] [11]
+) [9] [10]
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/symbolic_model_
-checking/sections/bdd.tex"
-
-LaTeX Warning: Citation `Lee' on page 12 undefined on input line 1.
-
-
-LaTeX Warning: Citation `1959' on page 12 undefined on input line 1.
-
-
-LaTeX Warning: Citation `Bryant 1986' on page 12 undefined on input line 1.
-
-
-LaTeX Warning: Citation `Bryant 1986' on page 12 undefined on input line 28.
-
-[12])
+checking/sections/bdd.tex" [11])
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/symbolic_model_
-checking/sections/kripke_structure_using_BDD.tex"
-
-LaTeX Warning: Citation `Burch 1990' on page 13 undefined on input line 1.
-
-
-LaTeX Warning: Citation `McMillan 1993' on page 13 undefined on input line 1.
-
-[13] [14])
+checking/sections/kripke_structure_using_BDD.tex" [12] [13])
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/symbolic_model_
-checking/temporal_logic.tex" [15]
-
-LaTeX Warning: Citation `Clarke 1999' on page 16 undefined on input line 15.
-
-[16] [17]
+checking/temporal_logic.tex" [14] [15] [16]
 Overfull \hbox (27.91663pt too wide) in paragraph at lines 84--186
 [][] 
  []
 
-[18])
+[17])
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/symbolic_model_
-checking/Verification.tex" [19]
-
-LaTeX Warning: Citation `Clarke 1999' on page 20 undefined on input line 15.
-
-[20]
-
-LaTeX Warning: Citation `Baier 2008' on page 21 undefined on input line 53.
-
-[21]
-
-LaTeX Warning: Citation `Baier 2008' on page 22 undefined on input line 78.
-
-)) [22]
+checking/Verification.tex" [18] [19] [20])) [21]
 Chapter 3.
 
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/partitioned_tra
-nsition_relation.tex") [23
+nsition_relation.tex") [22
 
 ]
 Chapter 4.
 
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/cone_of_influen
-ce_reduction.tex") [24
+ce_reduction.tex") [23
 
 ]
 Chapter 5.
 ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\chapters/SAT_solver.tex"
-) [25
+) [24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 64.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 64.
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+[]\OT1/cmr/m/n/12 C.Y.Lee \OT1/cmr/m/it/12 Bi-nary de-ci-sion pro-grams \OT1/cm
+r/m/n/12 Bell Sys-tem Tech-ni-cal
+ []
+
+[25
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
  ("C:\Users\Kasthuri Rengan\Desktop\Thesis\Final report\preamble.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 64.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 64.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `preamble.out' has not changed.
 (rerunfilecheck)             Checksum: C74F1E555863287EDF2B42AB8BC5A062;756.
 
@@ -1146,30 +1109,29 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25720 strings out of 493921
- 491078 string characters out of 3147251
- 538637 words of memory out of 3000000
- 28492 multiletter control sequences out of 15000+200000
- 14517 words of font info for 55 fonts, out of 3000000 for 9000
+ 25738 strings out of 493921
+ 491264 string characters out of 3147251
+ 538928 words of memory out of 3000000
+ 28503 multiletter control sequences out of 15000+200000
+ 15216 words of font info for 57 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  55i,16n,60p,10416b,1041s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{figure.caption.26} has been referenced but does n
-ot exist, replaced by a fixed one
-
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on preamble.pdf (26 pages, 271143 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on preamble.pdf (26 pages, 300012 bytes).
 PDF statistics:
- 338 PDF objects out of 1000 (max. 8388607)
- 88 named destinations out of 1000 (max. 500000)
+ 365 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
  119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
