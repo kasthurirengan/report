@@ -81,14 +81,6 @@ There are 8 basic CTL operators.
 
 Figure ~\ref{fig:basic ctl operators} shows the pictorial representation of few basic CTL operators. CTL operators can be easily understood in terms of computation tree.In the figure
  ~\ref{fig:basic ctl operators}, nodes marked in green color are the states which satisfies the given CTL formula.
- 
- Some typical CTL formulas for verifying a counter are
- \begin{itemize}
-  \item $A G(rst \rightarrow A X(\neg v0 \land \neg v1))$
-  \item $(\neg v0 \land \neg v1) \rightarrow E F(v0 \land v1)$
-  \item $(\neg v0 \land \neg v1) \rightarrow E G(enable \land \neg rst \land \neg (v0 \land v1))$
- \end{itemize}
-
 
 \begin{figure}[H]
 \begin{tabular}{c  c}

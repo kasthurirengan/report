@@ -48,4 +48,4 @@ Figure \ref{fig:kripke structure 2-bit counter} is a kripke structure of the fig
 \label{fig:kripke structure 2-bit counter}
 \end{figure}
 
-Till early 1980's, transition relation of a system was represented using adjacency list\cite{Clarke 2008}.  Due to the increase in the number of states, state transition graph became too large to handle using adjacency list. \cite{McMillan 1993} suggested a novel approach to solve the state exploration problem by using a symbolic representation of the state transition graph. It was based on ROBDD. For a given order, ROBDD of a boolean expression is always canonical\cite{Bryant 1986}.
+Till early 1980's, transition relation of a system was represented using adjacency list\cite{Clarke 2008}.  Due to the increase in the number of states, state transition graph became too large to handle using adjacency list. \cite{McMillian 1993} suggested a novel approach to solve the state exploration problem by using a symbolic representation of the state transition graph. It was based on ROBDD. For a given order, ROBDD of a boolean expression is always canonical\cite{Bryant 1986}.

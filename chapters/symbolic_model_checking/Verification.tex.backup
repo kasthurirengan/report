@@ -1,4 +1,5 @@
 In section ~\ref{sec:model_bdd} we have discussed how ROBDD is used to represent the model of the system. To verify the model using the specification we need algorithms that operates on ROBDD. In this section we will be seeing few basic CTL model checking algorithms which are used to verify the ROBDD model with the CTL specification. As mentioned in section ~\ref{sec:specification}, we will be looking into algorithms of 3 basic CTL operators used in our tool E X, E G, E U.
+
 \subsection*{Symbolic computation of E X}
 Equation ~\ref{eqn:exists_next} is the symbolic computation algorithm for E X $\Phi$. It is a straightforward procedure where E X $\Phi$ is true in a state, if in the successor state $\Phi$ is true.
 
@@ -15,7 +16,7 @@ From equation ~\ref{eqn:exists_next} one can easily compute E X by using an BDD 
 
 f and g are the 2 ROBDD's representing transition relation and CTL expression. E contains the set of variables which are to be existentially quantified out. In figure ~\ref{Relational Product algorithm} line 2-5 corresponds to basic AND operation while line 15 corresponds to existential quantification. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{framed}
 \begin{algorithmic}[1]
 \Procedure{RelProd}{$f,$g:BDD,$E:set\_of\_variables$}$:BDD$
@@ -57,7 +58,7 @@ Figure ~\ref{Symbolic computation of E U} shows the algorithm for symbolic compu
  previous states. Resultant states from $\chi_{\phi 1} \land \exists_{V'}[N(V,V')\land f_j(V')]$ are added to already computed states that satisfies the CTL operator.
  Line 5 is repeated untill a fix point is reached when no more new states are added. 
 
-\begin{figure}
+\begin{figure}[H]
 \begin{framed}
 \begin{algorithmic}[1]
 \Procedure{symbolic computation of}{$ E(\phi 1\, U\, \phi 2)$}
@@ -79,8 +80,8 @@ Figure ~\ref{Symbolic computation of E U} shows the algorithm for symbolic compu
 
 
 \subsection*{Symbolic computation of E G}
-Figure ~\ref{Symbolic computation of E G} shows the algorithm for symbolic computation of $E G(\Phi 1)$ CTL operator \cite{Baier 2008}. This algorithm is similar to the previous one except for 
-line 5. Instead of union of set of states, intersection of set of states is performed here.
+
+Figure ~\ref{Symbolic computation of E G} shows the algorithm for symbolic computation of $E G(\Phi 1)$ CTL operator \cite{Baier 2008}.
 
 \begin{figure}[H]
 \begin{framed}
